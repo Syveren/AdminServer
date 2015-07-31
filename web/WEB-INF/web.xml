@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <listener>
+        <listener-class>org.kino.server.listener.ServerStartupShutdownListener</listener-class>
+    </listener>
+    <filter>
+        <filter-name>Custom Remote Address Filter</filter-name>
+        <filter-class>org.kino.server.filter.RestrictIpFilter</filter-class>
+        <init-param>
+            <param-name>IP_FULL_ACCESS_REG_EXP</param-name>
+            <param-value>(127\.0\.0\.1)</param-value>
+        </init-param>
+        <init-param>
+            <param-name>FULL_ACCESS_BACKDOOR_SECRET</param-name>
+            <param-value>OpenSesame</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>Custom Remote Address Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>api</servlet-name>
+        <servlet-class>org.kino.server.api.ApiServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GWTService</servlet-name>
+        <servlet-class>org.kino.server.rpc.GWTServiceImpl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ImageServlet</servlet-name>
+        <servlet-class>org.kino.server.api.ImageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>clientversion</servlet-name>
+        <servlet-class>org.kino.server.api.clientversion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>clientupdate</servlet-name>
+        <servlet-class>org.kino.server.api.clientupdate</servlet-class>
+    </servlet>
+    <!--<servlet-mapping>
+        <servlet-name>api</servlet-name>
+        <url-pattern>/api</url-pattern>
+    </servlet-mapping>-->
+    <servlet>
+        <servlet-name>contractgenerator</servlet-name>
+        <servlet-class>org.kino.server.api.contractgenerator</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetTorrent</servlet-name>
+        <servlet-class>org.kino.server.api.GetTorrent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GWTService</servlet-name>
+        <url-pattern>/org.kino.Main/rpc/gwtservice</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ImageServlet</servlet-name>
+        <url-pattern>/image_servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>clientversion</servlet-name>
+        <url-pattern>/clientversion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>clientupdate</servlet-name>
+        <url-pattern>/clientupdate</url-pattern>
+    </servlet-mapping>
+    <!--<security-constraint>
+    <web-resource-collection>
+        <web-resource-name>restrict app</web-resource-name>
+        <url-pattern>/*</url-pattern>
+        <http-method>GET</http-method>
+        <http-method>POST</http-method>
+    </web-resource-collection>
+     <auth-constraint>
+        <role-name>app</role-name>
+    </auth-constraint>
+</security-constraint>
+
+   <security-constraint>
+    <web-resource-collection>
+        <web-resource-name>restrict api</web-resource-name>
+        <url-pattern>/api</url-pattern>
+        <http-method>GET</http-method>
+        <http-method>POST</http-method>
+    </web-resource-collection>
+     <auth-constraint>
+        <role-name>api</role-name>
+    </auth-constraint>
+ </security-constraint>
+
+<security-constraint>
+    <web-resource-collection>
+        <web-resource-name>all accsess</web-resource-name>
+        <url-pattern>/clientupdate</url-pattern>
+        <url-pattern>/clientversion</url-pattern>
+        <http-method>GET</http-method>
+        <http-method>POST</http-method>
+    </web-resource-collection>
+ </security-constraint>
+ 
+ 
+ 
+<login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>Enter login and password</realm-name>
+</login-config>
+
+ 
+<security-role>
+    <role-name>*</role-name>
+</security-role> 
+-->
+    <servlet-mapping>
+        <servlet-name>contractgenerator</servlet-name>
+        <url-pattern>/contractgenerator</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetTorrent</servlet-name>
+        <url-pattern>/gettorrent</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>welcomeGWT.html</welcome-file>
+    </welcome-file-list>
+</web-app>

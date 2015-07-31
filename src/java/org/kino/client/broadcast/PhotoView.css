@@ -1,0 +1,72 @@
+.aligncenter {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.thumb {
+    background: none repeat scroll 0 0 #DDDDDD;
+    padding: 3px;
+}
+
+.thumb {
+    height: 148px;
+    width: 128px;
+}
+
+.thumbPhoto {
+    background: none repeat scroll 0 0 #ddd;
+    border: 1px solid #ffffff;
+    position: absolute;
+}
+
+.thumbPhotoBorder {
+    border: 1px dotted #A3BAE9 !important;
+    cursor: pointer;
+    box-shadow: 0 0 3px 0 #3366cc;
+}
+
+.viewThumb {
+    background: none repeat scroll 0 0 #DDDDDD;
+    margin: 5px;
+}
+
+.viewThumbWrap {
+    border: 1px solid #aaccf6;
+    float: left;
+    margin: 4px 4px 4px 4px;
+    font: 11px Arial, Helvetica, sans-serif;
+}
+
+.thumbWrap {
+    border: 1px solid white;
+    float: left;
+    margin: 4px 4px 4px 4px;
+    padding: 5px;
+    font: 11px Arial, Helvetica, sans-serif;
+}
+
+.thumbWrap span {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+}
+
+.over {
+    background: repeat-x scroll left top #EFEFEF;
+    border: 1px solid #ddd !important;
+}
+
+.select {
+    background: none repeat scroll 0 50% #DFE8F6;
+    border: 1px dotted #A3BAE9 !important;
+    cursor: pointer;
+    box-shadow: 0 0 3px 0 #3366cc;
+}
+
+.select .thumb {
+    background: none repeat scroll 0 0 transparent;
+}
